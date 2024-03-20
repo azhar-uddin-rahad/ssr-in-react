@@ -3,9 +3,9 @@ import express from 'express'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
+console.log("hello world")
 const port = process.env.PORT || 5173
 const base = process.env.BASE || '/'
-
 // Cached production assets
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
@@ -33,6 +33,8 @@ if (!isProduction) {
   app.use(compression())
   app.use(base, sirv('./dist/client', { extensions: [] }))
 }
+
+
 
 // Serve HTML
 app.use('*', async (req, res) => {
@@ -64,6 +66,7 @@ app.use('*', async (req, res) => {
     res.status(500).end(e.stack)
   }
 })
+
 
 // Start http server
 app.listen(port, () => {

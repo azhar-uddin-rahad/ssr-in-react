@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 import {
     FacebookShareButton,
     WhatsappShareButton,
@@ -6,6 +7,7 @@ import {
     FacebookIcon,
   } from 'react-share';
 const ProductDetails = () => {
+    const shareUrl = 'https://www.pakkamarwadi.tk/';
   return (
     <div
     style={{
@@ -15,7 +17,7 @@ const ProductDetails = () => {
     }}
   >
     <h1>I hope you like it</h1>
-
+   
     <FacebookShareButton
       url={shareUrl}
       quote={'Title or jo bhi aapko likhna ho'}
